@@ -111,6 +111,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
+-- adding backspace 
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-\\><C-O>dB", { noremap = true, silent = true })
 
 -- for go XD
