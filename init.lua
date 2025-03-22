@@ -31,6 +31,15 @@ vim.opt.showmode = false
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
+-- indents changes
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	command = "set nolist",
+})
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -85,7 +94,7 @@ vim.opt.confirm = true
 -- my keymaps
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Switch to Normal Mode" })
 -- my filetree
-vim.keymap.set("n", "<leader>ee", ":Ex<CR>", { desc = "Open netrw (Ex)" })
+--vim.keymap.set("n", "<leader>ee", ":Ex<CR>", { desc = "Open netrw (Ex)" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- my split
@@ -102,6 +111,8 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
+vim.api.nvim_set_keymap("i", "<C-BS>", "<C-\\><C-O>dB", { noremap = true, silent = true })
+
 -- for go XD
 vim.keymap.set("n", "<leader>ef", 'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj')
 
@@ -116,15 +127,6 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set("n", "<leader>h", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<leader>l", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -860,28 +862,6 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- Change the name of the colorscheme plugin below, and then
-		-- change the command in the config to whatever the name of that colorscheme is.
-		--
-		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		"folke/tokyonight.nvim",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
-		config = function()
-			---@diagnostic disable-next-line: missing-fields
-			require("tokyonight").setup({
-				transparent = true,
-				styles = {
-					comments = { italic = false }, -- Disable italics in comments
-				},
-			})
-
-			-- Load the colorscheme here.
-			-- Like many other themes, this one has different styles, and you could load
-			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight-night")
-		end,
-	},
-
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
@@ -978,11 +958,11 @@ require("lazy").setup({
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
 	-- require 'kickstart.plugins.debug', https://www.youtube.com/watch?v=CNYqPnaCgJw 9:47
-	-- require 'kickstart.plugins.indent_line',
+	--	require("kickstart.plugins.indent_line"),
 	-- require 'kickstart.plugins.lint',
 	require("kickstart.plugins.autopairs"),
-	-- require 'kickstart.plugins.neo-tree',
-	-- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+	require("kickstart.plugins.neo-tree"),
+	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 	--    This is the easiest way to modularize your config.
