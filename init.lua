@@ -31,6 +31,7 @@ vim.opt.showmode = false
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
+
 -- indents changes
 vim.api.nvim_create_autocmd("VimEnter", {
 	pattern = "*",
@@ -40,6 +41,10 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+
+--my fold changes
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99 -- Prevent automatic folding on open
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -107,11 +112,11 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 --
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+--vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+--vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
--- adding backspace 
+-- adding backspace
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-\\><C-O>dB", { noremap = true, silent = true })
 
 -- for go XD
