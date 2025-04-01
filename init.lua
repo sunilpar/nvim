@@ -43,7 +43,7 @@ vim.opt.expandtab = true
 
 --my fold changes
 vim.opt.foldmethod = "indent"
-vim.opt.foldlevel = 99 -- Prevent automatic folding on open
+vim.opt.foldlevel = 99
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -112,7 +112,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 --
 -- next greatest remap ever : asbjornHaland
 --vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-
 --vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
 -- adding backspace
