@@ -27,9 +27,9 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
+-- vim.schedule(function()
+-- 	vim.opt.clipboard = "unnamedplus"
+-- end)
 
 -- indents changes
 vim.api.nvim_create_autocmd("VimEnter", {
@@ -97,8 +97,9 @@ vim.opt.confirm = true
 --
 -- my keymaps
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Switch to Normal Mode" })
+
 -- my filetree
---vim.keymap.set("n", "<leader>ee", ":Ex<CR>", { desc = "Open netrw (Ex)" })
+-- i use oil now
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- my split
@@ -109,10 +110,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- primes paste things
 vim.keymap.set("x", "<leader>p", [["_dP]])
---
+
 -- next greatest remap ever : asbjornHaland
---vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
---vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
 -- adding backspace
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-\\><C-O>dB", { noremap = true, silent = true })
