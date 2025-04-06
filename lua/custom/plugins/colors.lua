@@ -1,6 +1,5 @@
 function ColorMyPencils(color)
 	color = color or "tokyonight"
-	-- color = color or "vscode"
 	--	color = color or "catppuccin"
 	vim.cmd.colorscheme(color)
 
@@ -33,14 +32,4 @@ return {
 	},
 
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, flavour = "mocha" },
-	{
-		"Mofiqul/vscode.nvim",
-		config = function()
-			require("vscode").setup({
-				transparent = true,
-				italic_comments = false,
-			})
-			vim.cmd("colorscheme vscode")
-		end,
-	},
 }
