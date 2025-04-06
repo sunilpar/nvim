@@ -117,7 +117,7 @@ vim.api.nvim_set_keymap("i", "<C-BS>", "<C-w>", { noremap = true, silent = true 
 
 -- for go XD
 vim.keymap.set("n", "<leader>ef", 'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj')
--- for leader n to find nearest func
+-- for leader n to find nearest function
 vim.keymap.set("n", "<leader>n", "/func<CR>g$")
 
 -- Diagnostic keymaps
