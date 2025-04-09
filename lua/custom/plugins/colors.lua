@@ -33,6 +33,7 @@ return {
 	},
 
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, flavour = "mocha" },
+
 	{
 		"Mofiqul/vscode.nvim",
 		config = function()
@@ -40,7 +41,7 @@ return {
 				transparent = true,
 				italic_comments = false,
 			})
-			vim.cmd("colorscheme vscode")
+			ColorMyPencils()
 		end,
 	},
 }
