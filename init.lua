@@ -104,6 +104,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 -- for go XD
 vim.keymap.set("n", "<leader>ef", 'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj')
+vim.keymap.set("n", "<leader>pf", 'ofmt.Printf("\\n", )<Esc>F\\i')
 -- for leader n to find nearest function
 vim.keymap.set("n", "<leader>n", "/func<CR>g$")
 -- Diagnostic keymaps
@@ -911,11 +912,11 @@ require("lazy").setup({
 	--  Here are some example plugins that I've included in the Kickstart repository.
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
-	-- require 'kickstart.plugins.debug', https://www.youtube.com/watch?v=CNYqPnaCgJw 9:47
+	require("kickstart.plugins.debug"),
+	--https://www.youtube.com/watch?v=CNYqPnaCgJw 9:47
 	--	require("kickstart.plugins.indent_line"),
 	-- require 'kickstart.plugins.lint',
 	require("kickstart.plugins.autopairs"),
-	require("kickstart.plugins.neo-tree"),
 	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
