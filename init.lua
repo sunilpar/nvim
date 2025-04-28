@@ -114,6 +114,9 @@ vim.keymap.set("n", "<leader>l", "<C-w><C-l>", { desc = "Move focus to the right
 vim.keymap.set("n", "<leader>j", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<leader>k", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+vim.keymap.set("n", "<C-s>", ":wall<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-s>", "<Esc>:wall<CR>i", { noremap = true, silent = true })
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
