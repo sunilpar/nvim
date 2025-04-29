@@ -107,6 +107,7 @@ vim.keymap.set("n", "<leader>pf", 'ofmt.Printf("\\n", )<Esc>F\\i')
 -- for leader n to find nearest function
 vim.keymap.set("n", "<leader>n", "/func<CR>g$")
 -- Diagnostic keymaps
+--
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>h", "<C-w><C-h>", { desc = "Move focus to the left window" })
