@@ -601,7 +601,37 @@ require("lazy").setup({
 				--
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
 				-- ts_ls = {},
-				--
+				ts_ls = {
+					settings = {
+						typescript = {
+							preferences = {
+								importModuleSpecifierPreference = "relative",
+								quotePreference = "double",
+								includeCompletionsForModuleExports = true,
+								includeCompletionsWithInsertText = true,
+								allowTextChangesInNewFiles = true,
+							},
+							suggest = {
+								completeFunctionCalls = true,
+							},
+							format = {
+								semicolons = "insert",
+							},
+						},
+						javascript = {
+							preferences = {
+								importModuleSpecifierPreference = "relative",
+								quotePreference = "single",
+							},
+							suggest = {
+								completeFunctionCalls = true,
+							},
+							format = {
+								semicolons = "remove",
+							},
+						},
+					},
+				},
 
 				lua_ls = {
 					-- cmd = { ... },
@@ -690,12 +720,12 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "gofmt" },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
 
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
