@@ -104,6 +104,10 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- for go XD
 vim.keymap.set("n", "<leader>ef", 'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj')
 vim.keymap.set("n", "<leader>pf", 'ofmt.Printf("\\n", )<Esc>F\\i')
+
+--for div in html
+vim.keymap.set("n", "<leader>div", "o<div></div><Esc>F>a")
+
 -- for leader n to find nearest function
 vim.keymap.set("n", "<leader>n", "/func<CR>g$")
 -- Diagnostic keymaps
@@ -579,6 +583,7 @@ require("lazy").setup({
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
 				clangd = {},
+
 				gopls = {
 					cmd = { "gopls" },
 					filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -592,6 +597,7 @@ require("lazy").setup({
 						},
 					},
 				},
+
 				-- pyright = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -600,7 +606,7 @@ require("lazy").setup({
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
+
 				ts_ls = {
 					settings = {
 						typescript = {
