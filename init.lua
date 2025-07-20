@@ -110,6 +110,7 @@ vim.keymap.set("n", "<leader>div", "o<div></div><Esc>F>a")
 
 -- for leader n to find nearest function
 vim.keymap.set("n", "<leader>n", "/func<CR>g$")
+
 -- Diagnostic keymaps
 --
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
